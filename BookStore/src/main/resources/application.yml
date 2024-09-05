@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: BookStore
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 50MB
+  doc:
+    default-produces-media-type: application/json
+
+server:
+  servlet:
+    context-path: /api/v1/
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
