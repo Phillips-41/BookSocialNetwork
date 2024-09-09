@@ -194,7 +194,7 @@ public class BookService {
             throw new OperationNotPermittedException("You cannot approve the return of a book you do not own");
         }
 
-        BookTransactionHistory bookTransactionHistory = bookTransactionRepository.findByBookIdAndUserId(bookId, user.getId())
+        BookTransactionHistory bookTransactionHistory = bookTransactionRepository.findByBookIdAndOwnerId(bookId, user.getId())
                 .orElseThrow(() -> new OperationNotPermittedException("The book is not returned yet. You cannot approve its return"));
 
         bookTransactionHistory.setReturnApproved(true);
